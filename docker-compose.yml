@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+  backend:
+    image: graduation-backend
+    working_dir: /backend 
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: admin 
+      MYSQL_DB: sensor_node_manager_system
+
+  mysql:
+    image: mysql:8.0.28-oracle
+    volumes:
+      - ./mysql-files:/mysql-files
+      - sensor-node-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: sensor_node_manager_system
+
+volumes:
+  sensor-node-data:
+  
+  
+
+  
